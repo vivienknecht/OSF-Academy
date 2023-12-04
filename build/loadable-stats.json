@@ -1,11 +1,12 @@
 {
   "name": "client",
-  "hash": "1be81f35bed9215515fb",
+  "hash": "6d34013b6394c94a8e7b",
   "publicPath": "/mobify/bundle/development/",
-  "outputPath": "C:\\Users\\Vivo\\Desktop\\retail-react-app\\build",
+  "outputPath": "D:\\lisam\\OSF-Academy\\build",
   "assetsByChunkName": {
     "main": [
-      "main.js"
+      "main.js",
+      "main.ff59a252f3534be8ca02.hot-update.js"
     ],
     "pages-home": [
       "pages-home.js"
@@ -49,6 +50,10 @@
     "pages-account-wishlist": [
       "pages-account-wishlist.js"
     ],
+    "pages-youtube": [
+      "pages-youtube.js",
+      "pages-youtube.ff59a252f3534be8ca02.hot-update.js"
+    ],
     "pages-page-not-found": [
       "pages-page-not-found.js"
     ],
@@ -60,7 +65,7 @@
     {
       "type": "asset",
       "name": "vendor.js",
-      "size": 5437864,
+      "size": 1252045,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
@@ -87,7 +92,7 @@
     {
       "type": "asset",
       "name": "main.js",
-      "size": 1173625,
+      "size": 156796,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
@@ -111,8 +116,8 @@
     },
     {
       "type": "asset",
-      "name": "pages-checkout.js",
-      "size": 169862,
+      "name": "pages-account.js",
+      "size": 34970,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
@@ -136,8 +141,8 @@
     },
     {
       "type": "asset",
-      "name": "pages-account.js",
-      "size": 163883,
+      "name": "pages-checkout.js",
+      "size": 34274,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
@@ -162,7 +167,7 @@
     {
       "type": "asset",
       "name": "pages-product-list.js",
-      "size": 123550,
+      "size": 21866,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
@@ -186,8 +191,8 @@
     },
     {
       "type": "asset",
-      "name": "pages-cart.js",
-      "size": 70709,
+      "name": "pages-checkout-confirmation.js",
+      "size": 19639,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
@@ -211,39 +216,14 @@
     },
     {
       "type": "asset",
-      "name": "app_components_product-view_index_jsx.js",
-      "size": 68338,
+      "name": "pages-cart.js",
+      "size": 18710,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
       "info": {
         "javascriptModule": false,
-        "related": {
-          "sourceMap": "app_components_product-view_index_jsx.js.map"
-        }
-      },
-      "chunkNames": [],
-      "chunkIdHints": [],
-      "auxiliaryChunkNames": [],
-      "auxiliaryChunkIdHints": [],
-      "filteredRelated": 1,
-      "chunks": [
-        "app_components_product-view_index_jsx"
-      ],
-      "auxiliaryChunks": []
-    },
-    {
-      "type": "asset",
-      "name": "pages-checkout-confirmation.js",
-      "size": 61409,
-      "emitted": false,
-      "comparedForEmit": false,
-      "cached": true,
-      "info": {
-        "javascriptModule": false,
-        "related": {
-          "sourceMap": "pages-checkout-confirmation.js.map"
-        }
+        "minimized": true
       },
       "chunkNames": [
         "pages-checkout-confirmation"
@@ -259,8 +239,8 @@
     },
     {
       "type": "asset",
-      "name": "app_components_action-card_index_jsx-app_components_address-display_index_jsx-app_components_-8b77ee.js",
-      "size": 59487,
+      "name": "103.js",
+      "size": 17211,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
@@ -282,8 +262,8 @@
     },
     {
       "type": "asset",
-      "name": "app_components_order-summary_index_jsx.js",
-      "size": 50271,
+      "name": "77.js",
+      "size": 14114,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
@@ -305,8 +285,8 @@
     },
     {
       "type": "asset",
-      "name": "pages-account-wishlist.js",
-      "size": 48623,
+      "name": "410.js",
+      "size": 12336,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
@@ -330,8 +310,8 @@
     },
     {
       "type": "asset",
-      "name": "app_components_item-variant_item-attributes_jsx-app_components_item-variant_item-image_jsx-ap-c1a2e1.js",
-      "size": 45130,
+      "name": "180.js",
+      "size": 11455,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
@@ -354,7 +334,7 @@
     {
       "type": "asset",
       "name": "pages-home.js",
-      "size": 40696,
+      "size": 9618,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
@@ -372,14 +352,14 @@
       "auxiliaryChunkIdHints": [],
       "filteredRelated": 1,
       "chunks": [
-        "pages-home"
+        676
       ],
       "auxiliaryChunks": []
     },
     {
       "type": "asset",
       "name": "pages-product-detail.js",
-      "size": 38305,
+      "size": 8024,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
@@ -403,181 +383,169 @@
     },
     {
       "type": "asset",
-      "name": "app_components_confirmation-modal_index_jsx-app_components_product-item_index_jsx-app_compone-5d0c1c.js",
-      "size": 38284,
+      "name": "pages-account-wishlist.js",
+      "size": 6705,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
       "info": {
         "javascriptModule": false,
-        "related": {
-          "sourceMap": "app_components_confirmation-modal_index_jsx-app_components_product-item_index_jsx-app_compone-5d0c1c.js.map"
-        }
-      },
-      "chunkNames": [],
-      "chunkIdHints": [],
-      "auxiliaryChunkNames": [],
-      "auxiliaryChunkIdHints": [],
-      "filteredRelated": 1,
-      "chunks": [
-        "app_components_confirmation-modal_index_jsx-app_components_product-item_index_jsx-app_compone-5d0c1c"
-      ],
-      "auxiliaryChunks": []
-    },
-    {
-      "type": "asset",
-      "name": "pages-login.js",
-      "size": 12465,
-      "emitted": false,
-      "comparedForEmit": false,
-      "cached": true,
-      "info": {
-        "javascriptModule": false,
-        "related": {
-          "sourceMap": "pages-login.js.map"
-        }
+        "minimized": true
       },
       "chunkNames": [
-        "pages-login"
+        "pages-account-wishlist"
       ],
       "chunkIdHints": [],
       "auxiliaryChunkNames": [],
       "auxiliaryChunkIdHints": [],
       "filteredRelated": 1,
       "chunks": [
-        "pages-login"
+        997
       ],
       "auxiliaryChunks": []
     },
     {
       "type": "asset",
       "name": "pages-reset-password.js",
-      "size": 11234,
+      "size": 2120,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
       "info": {
         "javascriptModule": false,
-        "related": {
-          "sourceMap": "pages-reset-password.js.map"
-        }
+        "minimized": true
       },
       "chunkNames": [
-        "pages-reset-password"
+        "pages-login"
       ],
       "chunkIdHints": [],
       "auxiliaryChunkNames": [],
       "auxiliaryChunkIdHints": [],
       "filteredRelated": 1,
       "chunks": [
-        "pages-reset-password"
+        896
       ],
       "auxiliaryChunks": []
     },
     {
       "type": "asset",
-      "name": "pages-registration.js",
-      "size": 9015,
+      "name": "pages-login.js",
+      "size": 2076,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
       "info": {
         "javascriptModule": false,
-        "related": {
-          "sourceMap": "pages-registration.js.map"
-        }
+        "minimized": true
       },
       "chunkNames": [
-        "pages-registration"
+        "pages-login"
       ],
       "chunkIdHints": [],
       "auxiliaryChunkNames": [],
       "auxiliaryChunkIdHints": [],
       "filteredRelated": 1,
       "chunks": [
-        "pages-registration"
+        28
       ],
       "auxiliaryChunks": []
     },
     {
       "type": "asset",
       "name": "pages-page-not-found.js",
-      "size": 8070,
+      "size": 1787,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
       "info": {
         "javascriptModule": false,
-        "related": {
-          "sourceMap": "pages-page-not-found.js.map"
-        }
+        "minimized": true
       },
       "chunkNames": [
-        "pages-page-not-found"
+        "pages-registration"
       ],
       "chunkIdHints": [],
       "auxiliaryChunkNames": [],
       "auxiliaryChunkIdHints": [],
       "filteredRelated": 1,
       "chunks": [
-        "pages-page-not-found"
+        710
+      ],
+      "auxiliaryChunks": []
+    },
+    {
+      "type": "asset",
+      "name": "pages-registration.js",
+      "size": 1332,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "javascriptModule": false,
+        "minimized": true
+      },
+      "chunkNames": [
+        "pages-registration"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "filteredRelated": 1,
+      "chunks": [
+        17
       ],
       "auxiliaryChunks": []
     },
     {
       "type": "asset",
       "name": "pages-content-search.js",
-      "size": 4834,
+      "size": 836,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
       "info": {
         "javascriptModule": false,
-        "related": {
-          "sourceMap": "pages-content-search.js.map"
-        }
+        "minimized": true
       },
       "chunkNames": [
-        "pages-content-search"
+        "pages-content-details"
       ],
       "chunkIdHints": [],
       "auxiliaryChunkNames": [],
       "auxiliaryChunkIdHints": [],
       "filteredRelated": 1,
       "chunks": [
-        "pages-content-search"
+        995
       ],
       "auxiliaryChunks": []
     },
     {
       "type": "asset",
       "name": "pages-content-details.js",
-      "size": 4525,
+      "size": 738,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
       "info": {
         "javascriptModule": false,
-        "related": {
-          "sourceMap": "pages-content-details.js.map"
-        }
+        "minimized": true
       },
       "chunkNames": [
-        "pages-content-details"
+        "pages-youtube"
       ],
       "chunkIdHints": [],
       "auxiliaryChunkNames": [],
       "auxiliaryChunkIdHints": [],
       "filteredRelated": 1,
       "chunks": [
-        "pages-content-details"
+        277
       ],
       "auxiliaryChunks": []
     },
     {
       "type": "asset",
       "name": "pages-login-redirect.js",
-      "size": 3016,
+      "size": 338,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
@@ -601,8 +569,8 @@
     },
     {
       "type": "asset",
-      "name": "_1242.js",
-      "size": 284,
+      "name": "146.js",
+      "size": 97,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
@@ -621,6 +589,25 @@
         "_1242"
       ],
       "auxiliaryChunks": []
+    },
+    {
+      "type": "asset",
+      "name": "main.ff59a252f3534be8ca02.hot-update.json",
+      "size": 44,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true,
+        "fullhash": "ff59a252f3534be8ca02"
+      },
+      "chunkNames": [],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "chunks": [],
+      "auxiliaryChunks": []
     }
   ],
   "namedChunkGroups": {
@@ -636,12 +623,15 @@
         },
         {
           "name": "main.js"
+        },
+        {
+          "name": "main.ff59a252f3534be8ca02.hot-update.js"
         }
       ],
       "filteredAssets": 0,
       "assetsSize": null,
-      "filteredAuxiliaryAssets": 2,
-      "auxiliaryAssetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
       "children": {},
       "childAssets": {}
     },
@@ -954,8 +944,8 @@
       ],
       "filteredAssets": 0,
       "assetsSize": null,
-      "filteredAuxiliaryAssets": 4,
-      "auxiliaryAssetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
       "children": {},
       "childAssets": {}
     },
@@ -982,7 +972,8 @@
     {
       "id": "main",
       "files": [
-        "main.js"
+        "main.js",
+        "main.ff59a252f3534be8ca02.hot-update.js"
       ]
     },
     {
@@ -1076,7 +1067,7 @@
       ]
     },
     {
-      "id": "pages-page-not-found",
+      "id": 710,
       "files": [
         "pages-page-not-found.js"
       ]
