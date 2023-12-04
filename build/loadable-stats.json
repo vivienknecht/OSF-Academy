@@ -1,11 +1,12 @@
 {
   "name": "client",
-  "hash": "a8c8d78acc1179ab59de",
+  "hash": "6d34013b6394c94a8e7b",
   "publicPath": "/mobify/bundle/development/",
   "outputPath": "D:\\lisam\\OSF-Academy\\build",
   "assetsByChunkName": {
     "main": [
-      "main.js"
+      "main.js",
+      "main.ff59a252f3534be8ca02.hot-update.js"
     ],
     "pages-home": [
       "pages-home.js"
@@ -49,6 +50,10 @@
     "pages-account-wishlist": [
       "pages-account-wishlist.js"
     ],
+    "pages-youtube": [
+      "pages-youtube.js",
+      "pages-youtube.ff59a252f3534be8ca02.hot-update.js"
+    ],
     "pages-page-not-found": [
       "pages-page-not-found.js"
     ],
@@ -87,7 +92,7 @@
     {
       "type": "asset",
       "name": "main.js",
-      "size": 1175433,
+      "size": 1176620,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
@@ -576,6 +581,58 @@
     },
     {
       "type": "asset",
+      "name": "pages-youtube.js",
+      "size": 3258,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "javascriptModule": false,
+        "related": {
+          "sourceMap": "pages-youtube.js.map"
+        }
+      },
+      "chunkNames": [
+        "pages-youtube"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "filteredRelated": 1,
+      "chunks": [
+        "pages-youtube"
+      ],
+      "auxiliaryChunks": []
+    },
+    {
+      "type": "asset",
+      "name": "pages-youtube.ff59a252f3534be8ca02.hot-update.js",
+      "size": 3241,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true,
+        "fullhash": "ff59a252f3534be8ca02",
+        "related": {
+          "sourceMap": "pages-youtube.ff59a252f3534be8ca02.hot-update.js.map"
+        }
+      },
+      "chunkNames": [
+        "pages-youtube"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "filteredRelated": 1,
+      "chunks": [
+        "pages-youtube"
+      ],
+      "auxiliaryChunks": []
+    },
+    {
+      "type": "asset",
       "name": "pages-login-redirect.js",
       "size": 3021,
       "emitted": false,
@@ -601,6 +658,33 @@
     },
     {
       "type": "asset",
+      "name": "main.ff59a252f3534be8ca02.hot-update.js",
+      "size": 360,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true,
+        "fullhash": "ff59a252f3534be8ca02",
+        "related": {
+          "sourceMap": "main.ff59a252f3534be8ca02.hot-update.js.map"
+        }
+      },
+      "chunkNames": [
+        "main"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "filteredRelated": 1,
+      "chunks": [
+        "main"
+      ],
+      "auxiliaryChunks": []
+    },
+    {
+      "type": "asset",
       "name": "_1242.js",
       "size": 284,
       "emitted": false,
@@ -621,6 +705,25 @@
         "_1242"
       ],
       "auxiliaryChunks": []
+    },
+    {
+      "type": "asset",
+      "name": "main.ff59a252f3534be8ca02.hot-update.json",
+      "size": 44,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true,
+        "fullhash": "ff59a252f3534be8ca02"
+      },
+      "chunkNames": [],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "chunks": [],
+      "auxiliaryChunks": []
     }
   ],
   "namedChunkGroups": {
@@ -636,11 +739,14 @@
         },
         {
           "name": "main.js"
+        },
+        {
+          "name": "main.ff59a252f3534be8ca02.hot-update.js"
         }
       ],
       "filteredAssets": 0,
       "assetsSize": null,
-      "filteredAuxiliaryAssets": 2,
+      "filteredAuxiliaryAssets": 3,
       "auxiliaryAssetsSize": null,
       "children": {},
       "childAssets": {}
@@ -959,6 +1065,26 @@
       "children": {},
       "childAssets": {}
     },
+    "pages-youtube": {
+      "name": "pages-youtube",
+      "chunks": [
+        "pages-youtube"
+      ],
+      "assets": [
+        {
+          "name": "pages-youtube.js"
+        },
+        {
+          "name": "pages-youtube.ff59a252f3534be8ca02.hot-update.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 2,
+      "auxiliaryAssetsSize": null,
+      "children": {},
+      "childAssets": {}
+    },
     "pages-page-not-found": {
       "name": "pages-page-not-found",
       "chunks": [
@@ -982,7 +1108,8 @@
     {
       "id": "main",
       "files": [
-        "main.js"
+        "main.js",
+        "main.ff59a252f3534be8ca02.hot-update.js"
       ]
     },
     {
@@ -1073,6 +1200,13 @@
       "id": "pages-account-wishlist",
       "files": [
         "pages-account-wishlist.js"
+      ]
+    },
+    {
+      "id": "pages-youtube",
+      "files": [
+        "pages-youtube.js",
+        "pages-youtube.ff59a252f3534be8ca02.hot-update.js"
       ]
     },
     {

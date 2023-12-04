@@ -32,7 +32,8 @@ const options = {
     protocol: 'http'
 }
 
-const runtime = getRuntime()
+
+const runtime = getRuntime();
 
 const {handler} = runtime.createHandler(options, (app) => {
     // Set default HTTP security headers required by PWA Kit
@@ -45,18 +46,23 @@ const {handler} = runtime.createHandler(options, (app) => {
                 directives: {
                     'img-src': [
                         // Default source for product images - replace with your CDN
-                        '*.commercecloud.salesforce.com'
+                     "'self'",   '*.commercecloud.salesforce.com', 'data:'
                     ],
                     'script-src': [
                         // Used by the service worker in /worker/main.js
-                        'storage.googleapis.com'
+                        "'self'","'unsafe-eval'",'storage.googleapis.com'
                     ],
                     'connect-src': [
                         // Connect to Einstein APIs
-                        'api.cquotient.com'
-                    ]
+                        "'self'",'api.cquotient.com'
+                    ],
+                    'frame-src':[
+                        "'self'", 'https://www.youtube.com'
+                    ],
+                    'upgrade-insecure-requests': null
                 }
-            }
+            },
+            hsts: false
         })
     )
 
