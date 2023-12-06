@@ -1,12 +1,12 @@
 {
   "name": "client",
-  "hash": "6d34013b6394c94a8e7b",
+  "hash": "fded4e6169ff0290d2e8",
   "publicPath": "/mobify/bundle/development/",
   "outputPath": "D:\\lisam\\OSF-Academy\\build",
   "assetsByChunkName": {
     "main": [
       "main.js",
-      "main.ff59a252f3534be8ca02.hot-update.js"
+      "main.d3141fa875db14f4c250.hot-update.js"
     ],
     "pages-home": [
       "pages-home.js"
@@ -51,8 +51,11 @@
       "pages-account-wishlist.js"
     ],
     "pages-youtube": [
-      "pages-youtube.js",
-      "pages-youtube.ff59a252f3534be8ca02.hot-update.js"
+      "pages-youtube.js"
+    ],
+    "pages-exercises": [
+      "pages-exercises.js",
+      "pages-exercises.d3141fa875db14f4c250.hot-update.js"
     ],
     "pages-page-not-found": [
       "pages-page-not-found.js"
@@ -492,7 +495,34 @@
       "auxiliaryChunkIdHints": [],
       "filteredRelated": 1,
       "chunks": [
-        17
+        "pages-exercises"
+      ],
+      "auxiliaryChunks": []
+    },
+    {
+      "type": "asset",
+      "name": "pages-exercises.d3141fa875db14f4c250.hot-update.js",
+      "size": 5449,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true,
+        "fullhash": "d3141fa875db14f4c250",
+        "related": {
+          "sourceMap": "pages-exercises.d3141fa875db14f4c250.hot-update.js.map"
+        }
+      },
+      "chunkNames": [
+        "pages-exercises"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "filteredRelated": 1,
+      "chunks": [
+        "pages-exercises"
       ],
       "auxiliaryChunks": []
     },
@@ -569,8 +599,35 @@
     },
     {
       "type": "asset",
-      "name": "146.js",
-      "size": 97,
+      "name": "main.d3141fa875db14f4c250.hot-update.js",
+      "size": 360,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true,
+        "fullhash": "d3141fa875db14f4c250",
+        "related": {
+          "sourceMap": "main.d3141fa875db14f4c250.hot-update.js.map"
+        }
+      },
+      "chunkNames": [
+        "main"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "filteredRelated": 1,
+      "chunks": [
+        "main"
+      ],
+      "auxiliaryChunks": []
+    },
+    {
+      "type": "asset",
+      "name": "_1242.js",
+      "size": 284,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
@@ -592,15 +649,15 @@
     },
     {
       "type": "asset",
-      "name": "main.ff59a252f3534be8ca02.hot-update.json",
-      "size": 44,
+      "name": "main.d3141fa875db14f4c250.hot-update.json",
+      "size": 46,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
       "info": {
         "hotModuleReplacement": true,
         "immutable": true,
-        "fullhash": "ff59a252f3534be8ca02"
+        "fullhash": "d3141fa875db14f4c250"
       },
       "chunkNames": [],
       "chunkIdHints": [],
@@ -625,13 +682,13 @@
           "name": "main.js"
         },
         {
-          "name": "main.ff59a252f3534be8ca02.hot-update.js"
+          "name": "main.d3141fa875db14f4c250.hot-update.js"
         }
       ],
       "filteredAssets": 0,
       "assetsSize": null,
-      "filteredAuxiliaryAssets": 0,
-      "auxiliaryAssetsSize": 0,
+      "filteredAuxiliaryAssets": 3,
+      "auxiliaryAssetsSize": null,
       "children": {},
       "childAssets": {}
     },
@@ -944,8 +1001,45 @@
       ],
       "filteredAssets": 0,
       "assetsSize": null,
-      "filteredAuxiliaryAssets": 0,
-      "auxiliaryAssetsSize": 0,
+      "filteredAuxiliaryAssets": 4,
+      "auxiliaryAssetsSize": null,
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-youtube": {
+      "name": "pages-youtube",
+      "chunks": [
+        "pages-youtube"
+      ],
+      "assets": [
+        {
+          "name": "pages-youtube.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 1,
+      "auxiliaryAssetsSize": null,
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-exercises": {
+      "name": "pages-exercises",
+      "chunks": [
+        "pages-exercises"
+      ],
+      "assets": [
+        {
+          "name": "pages-exercises.js"
+        },
+        {
+          "name": "pages-exercises.d3141fa875db14f4c250.hot-update.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 2,
+      "auxiliaryAssetsSize": null,
       "children": {},
       "childAssets": {}
     },
@@ -973,7 +1067,7 @@
       "id": "main",
       "files": [
         "main.js",
-        "main.ff59a252f3534be8ca02.hot-update.js"
+        "main.d3141fa875db14f4c250.hot-update.js"
       ]
     },
     {
@@ -1067,7 +1161,20 @@
       ]
     },
     {
-      "id": 710,
+      "id": "pages-youtube",
+      "files": [
+        "pages-youtube.js"
+      ]
+    },
+    {
+      "id": "pages-exercises",
+      "files": [
+        "pages-exercises.js",
+        "pages-exercises.d3141fa875db14f4c250.hot-update.js"
+      ]
+    },
+    {
+      "id": "pages-page-not-found",
       "files": [
         "pages-page-not-found.js"
       ]
