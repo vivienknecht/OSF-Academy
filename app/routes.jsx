@@ -48,6 +48,10 @@ const Wishlist = loadable(() => import('./pages/account/wishlist'), {
 const Youtube = loadable(() => import('./pages/youtube'), {
     fallback
 })
+const Exercises = loadable(() => import('./pages/exercises'), {
+    fallback
+})
+
 const PageNotFound = loadable(() => import('./pages/page-not-found'))
 
 export const routes = [
@@ -122,6 +126,10 @@ export const routes = [
     {
         path: '/youtube',
         component: Youtube
+    },
+    {
+        path: '/exercises',
+        component: Exercises    
     },
     {
         path: '*',
