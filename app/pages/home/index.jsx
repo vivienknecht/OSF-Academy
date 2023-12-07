@@ -5,9 +5,10 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
-import React, {useEffect} from 'react'
-import {useIntl, FormattedMessage} from 'react-intl'
-import {useLocation} from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { useIntl, FormattedMessage } from 'react-intl'
+import { useLocation } from 'react-router-dom'
+import Calculator from './calculator'
 
 // Components
 import {
@@ -32,8 +33,8 @@ import Section from '@salesforce/retail-react-app/app/components/section'
 import ProductScroller from '@salesforce/retail-react-app/app/components/product-scroller'
 
 // Others
-import {getAssetUrl} from '@salesforce/pwa-kit-react-sdk/ssr/universal/utils'
-import {heroFeatures, features} from '@salesforce/retail-react-app/app/pages/home/data'
+import { getAssetUrl } from '@salesforce/pwa-kit-react-sdk/ssr/universal/utils'
+import { heroFeatures, features } from '@salesforce/retail-react-app/app/pages/home/data'
 
 //Hooks
 import useEinstein from '@salesforce/retail-react-app/app/hooks/use-einstein'
@@ -44,8 +45,9 @@ import {
     HOME_SHOP_PRODUCTS_CATEGORY_ID,
     HOME_SHOP_PRODUCTS_LIMIT
 } from '@salesforce/retail-react-app/app/constants'
-import {useServerContext} from '@salesforce/pwa-kit-react-sdk/ssr/universal/hooks'
-import {useProductSearch} from '@salesforce/commerce-sdk-react'
+import { useServerContext } from '@salesforce/pwa-kit-react-sdk/ssr/universal/hooks'
+import { useProductSearch } from '@salesforce/commerce-sdk-react'
+import { subtract } from 'lodash'
 
 /**
  * This is the home page for Retail React App.
@@ -53,30 +55,31 @@ import {useProductSearch} from '@salesforce/commerce-sdk-react'
  * The page renders SEO metadata and a few promotion
  * categories and products, data is from local file.
  */
-const MyHeader = ({name}) => {
-    if (name){
-    return (
-        <Box>
-    <h1 >Hello, {name}! </h1>
-    <Alert padding="5" status="info">
-        <AlertIcon/>
-        I did it!
-    </Alert>
-    </Box>
-    )}
+const MyHeader = ({ name }) => {
+    if (name) {
+        return (
+            <Box>
+                <h1 >Hello, {name}! </h1>
+                <Alert padding="5" status="info">
+                    <AlertIcon />
+                    I did it!
+                </Alert>
+            </Box>
+        )
+    }
     else return <h1>No name</h1>
 }
 const Home = () => {
     const intl = useIntl()
     const einstein = useEinstein()
-    const {pathname} = useLocation()
+    const { pathname } = useLocation()
 
-    const {res} = useServerContext()
+    const { res } = useServerContext()
     if (res) {
         res.set('Cache-Control', `max-age=${MAX_CACHE_AGE}`)
     }
 
-    const {data: productSearchResult, isLoading} = useProductSearch({
+    const { data: productSearchResult, isLoading } = useProductSearch({
         parameters: {
             refine: [`cgid=${HOME_SHOP_PRODUCTS_CATEGORY_ID}`, 'htype=master'],
             limit: HOME_SHOP_PRODUCTS_LIMIT
@@ -96,6 +99,10 @@ const Home = () => {
                 keywords="Commerce Cloud, Retail React App, React Storefront"
             />
             <MyHeader name="Vivi" />
+            {/* EXERCISE 6 - CALCULATOR */}
+
+            <Calculator/>
+
 
             <Hero
                 title={intl.formatMessage({
@@ -107,14 +114,14 @@ const Home = () => {
                     alt: 'npx pwa-kit-create-app'
                 }}
                 actions={
-                    <Stack spacing={{base: 4, sm: 6}} direction={{base: 'column', sm: 'row'}}>
+                    <Stack spacing={{ base: 4, sm: 6 }} direction={{ base: 'column', sm: 'row' }}>
                         <Button
                             as={Link}
                             href="https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/getting-started.html"
                             target="_blank"
-                            width={{base: 'full', md: 'inherit'}}
+                            width={{ base: 'full', md: 'inherit' }}
                             paddingX={7}
-                            _hover={{textDecoration: 'none'}}
+                            _hover={{ textDecoration: 'none' }}
                         >
                             <FormattedMessage
                                 defaultMessage="Get started"
@@ -128,20 +135,20 @@ const Home = () => {
             <Section
                 background={'gray.50'}
                 marginX="auto"
-                paddingY={{base: 8, md: 16}}
-                paddingX={{base: 4, md: 8}}
+                paddingY={{ base: 8, md: 16 }}
+                paddingX={{ base: 4, md: 8 }}
                 borderRadius="base"
-                width={{base: '100vw', md: 'inherit'}}
-                position={{base: 'relative', md: 'inherit'}}
-                left={{base: '50%', md: 'inherit'}}
-                right={{base: '50%', md: 'inherit'}}
-                marginLeft={{base: '-50vw', md: 'auto'}}
-                marginRight={{base: '-50vw', md: 'auto'}}
+                width={{ base: '100vw', md: 'inherit' }}
+                position={{ base: 'relative', md: 'inherit' }}
+                left={{ base: '50%', md: 'inherit' }}
+                right={{ base: '50%', md: 'inherit' }}
+                marginLeft={{ base: '-50vw', md: 'auto' }}
+                marginRight={{ base: '-50vw', md: 'auto' }}
             >
                 <SimpleGrid
-                    columns={{base: 1, md: 1, lg: 3}}
-                    spacingX={{base: 1, md: 4}}
-                    spacingY={{base: 4, md: 14}}
+                    columns={{ base: 1, md: 1, lg: 3 }}
+                    spacingX={{ base: 1, md: 4 }}
+                    spacingY={{ base: 4, md: 14 }}
                 >
                     {heroFeatures.map((feature, index) => {
                         const featureMessage = feature.message
@@ -206,7 +213,7 @@ const Home = () => {
                                         right: 0,
                                         background: 'gray.700'
                                     }}
-                                    _hover={{textDecoration: 'none'}}
+                                    _hover={{ textDecoration: 'none' }}
                                 >
                                     {intl.formatMessage({
                                         defaultMessage: 'Read docs',
@@ -240,7 +247,7 @@ const Home = () => {
                 })}
             >
                 <Container maxW={'6xl'} marginTop={10}>
-                    <SimpleGrid columns={{base: 1, md: 2, lg: 3}} spacing={10}>
+                    <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={10}>
                         {features.map((feature, index) => {
                             const featureMessage = feature.message
                             return (
@@ -301,7 +308,7 @@ const Home = () => {
                         target="_blank"
                         width={'auto'}
                         paddingX={7}
-                        _hover={{textDecoration: 'none'}}
+                        _hover={{ textDecoration: 'none' }}
                     >
                         <FormattedMessage defaultMessage="Contact Us" id="home.link.contact_us" />
                     </Button>
