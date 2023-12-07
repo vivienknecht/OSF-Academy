@@ -30,10 +30,13 @@ function Calculator()  {
       };
 
 
-        const handleOperationChange = (event) => {
-            setOperation(event.target.value);
-        };
+      const handleOperationChange = (event) => {
+        setOperation(event.target.value);
+      };
 
+      React.useEffect(() => {
+        handleCalculate();
+      }, [value1, value2, operation]);
 
         const handleCalculate = () => {
             let CalculatedResult = 0;
@@ -109,7 +112,7 @@ function Calculator()  {
                         <option value="divide" >/</option>
                     </Select>
                     <Button onClick={handleClear} >Clear </Button>   
-                    <Button onClick={handleCalculate} >Calculate </Button>       
+                    {/* <Button onClick={handleCalculate} >Calculate </Button>        */}
                       </Stack>
                       <Box mt="20px" ml="200px">
                         <Text fontSize="4xl">Result: {result} </Text>
