@@ -5,10 +5,10 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
-import React, {forwardRef, useEffect, useRef, useState} from 'react'
+import React, { forwardRef, useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
-import {useHistory, useLocation} from 'react-router-dom'
-import {useIntl} from 'react-intl'
+import { useHistory, useLocation } from 'react-router-dom'
+import { useIntl } from 'react-intl'
 
 import {
     Flex,
@@ -21,8 +21,8 @@ import {
     Fade,
     useTheme
 } from '@salesforce/retail-react-app/app/components/shared/ui'
-import {useDerivedProduct} from '@salesforce/retail-react-app/app/hooks'
-import {useAddToCartModalContext} from '@salesforce/retail-react-app/app/hooks/use-add-to-cart-modal'
+import { useDerivedProduct } from '@salesforce/retail-react-app/app/hooks'
+import { useAddToCartModalContext } from '@salesforce/retail-react-app/app/hooks/use-add-to-cart-modal'
 
 // project components
 import SwatchGroup from '@salesforce/retail-react-app/app/components/swatch-group'
@@ -31,15 +31,17 @@ import ImageGallery from '@salesforce/retail-react-app/app/components/image-gall
 import Breadcrumb from '@salesforce/retail-react-app/app/components/breadcrumb'
 import Link from '@salesforce/retail-react-app/app/components/link'
 import withRegistration from '@salesforce/retail-react-app/app/components/with-registration'
-import {Skeleton as ImageGallerySkeleton} from '@salesforce/retail-react-app/app/components/image-gallery'
-import {HideOnDesktop, HideOnMobile} from '@salesforce/retail-react-app/app/components/responsive'
+import { Skeleton as ImageGallerySkeleton } from '@salesforce/retail-react-app/app/components/image-gallery'
+import { HideOnDesktop, HideOnMobile } from '@salesforce/retail-react-app/app/components/responsive'
 import QuantityPicker from '@salesforce/retail-react-app/app/components/quantity-picker'
-import {useToast} from '@salesforce/retail-react-app/app/hooks/use-toast'
-import {API_ERROR_MESSAGE} from '@salesforce/retail-react-app/app/constants'
+import { useToast } from '@salesforce/retail-react-app/app/hooks/use-toast'
+import { API_ERROR_MESSAGE } from '@salesforce/retail-react-app/app/constants'
 import DisplayPrice from '@salesforce/retail-react-app/app/components/display-price'
-import {getDisplayPrice} from '@salesforce/retail-react-app/app/utils/product-utils'
+import { getDisplayPrice } from '@salesforce/retail-react-app/app/utils/product-utils'
+import {useCustomerProductLists, useShopperCustomersMutation} from '@salesforce/commerce-sdk-react'
+import { useWishList } from '../../hooks/use-wish-list'
 
-const ProductViewHeader = ({name, basePrice, discountPrice, currency, category, productType}) => {
+const ProductViewHeader = ({ name, basePrice, discountPrice, currency, category, productType }) => {
     const isProductASet = productType?.set
 
     return (
@@ -92,11 +94,12 @@ const ProductView = forwardRef(
             addToCart,
             updateCart,
             addToWishlist,
+            removeFromWishList,
             updateWishlist,
             isProductLoading,
             isProductPartOfSet = false,
             isBasketLoading = false,
-            onVariantSelected = () => {},
+            onVariantSelected = () => { },
             validateOrderability = (variant, quantity, stockLevel) =>
                 !isProductLoading && variant?.orderable && quantity > 0 && quantity <= stockLevel
         },
@@ -126,13 +129,13 @@ const ProductView = forwardRef(
             stockLevel,
             stepQuantity
         } = useDerivedProduct(product, isProductPartOfSet)
-        const {basePrice, discountPrice} = getDisplayPrice(product)
+        const { basePrice, discountPrice } = getDisplayPrice(product)
         const canAddToWishlist = !isProductLoading
         const isProductASet = product?.type.set
         const errorContainerRef = useRef(null)
 
         const validateAndShowError = (opts = {}) => {
-            const {scrollErrorIntoView = true} = opts
+            const { scrollErrorIntoView = true } = opts
             // Validate that all attributes are selected before proceeding.
             const hasValidSelection = validateOrderability(variant, quantity, stockLevel)
             const showError = !isProductASet && !hasValidSelection
@@ -233,8 +236,8 @@ const ProductView = forwardRef(
                         {updateCart
                             ? buttonText.update
                             : isProductASet
-                            ? buttonText.addSetToCart
-                            : buttonText.addToCart}
+                                ? buttonText.addSetToCart
+                                : buttonText.addToCart}
                     </Button>
                 )
             }
@@ -253,8 +256,8 @@ const ProductView = forwardRef(
                         {updateWishlist
                             ? buttonText.update
                             : isProductASet
-                            ? buttonText.addSetToWishlist
-                            : buttonText.addToWishlist}
+                                ? buttonText.addSetToWishlist
+                                : buttonText.addToWishlist}
                     </ButtonWithRegistration>
                 )
             }
@@ -265,7 +268,7 @@ const ProductView = forwardRef(
         // Bind the reference with our `scope` that includes the internal validate function for this component.
         // Other values can be added to this scope as required.
         if (typeof ref === 'function') {
-            ref = ref.bind({validateOrderability: validateAndShowError})
+            ref = ref.bind({ validateOrderability: validateAndShowError })
         }
 
         useEffect(() => {
@@ -285,6 +288,54 @@ const ProductView = forwardRef(
                 onVariantSelected(product, variant, quantity)
             }
         }, [variant?.productId, quantity])
+
+        const { data: wishlistData } = useWishList();
+        const removeListItem = useCustomerProductLists();
+
+        const isInWishlist = (product, wishlistData) => {
+            if (wishlistData && wishlistData.items) {
+                return wishlistData.items.some(item => item.product_id === product.id);
+            }
+            return false;
+        }
+
+        const [isInWishlistState, setIsInWishlistState] = useState(isInWishlist(product, wishlistData));
+
+        const handleWishlistItem = async () => {
+            try {
+                const productIsInWishlist = isInWishlist(product, wishlistData);
+
+                if (productIsInWishlist) {
+                    console.log('Removing from wishlist...');
+                    await removeListItem(product.id);
+                    setIsInWishlistState(false);
+                } else {
+                    await addToWishlist(product);
+                    setIsInWishlistState(true);
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        const renderWishlistButton = () => {
+            const buttonText = isInWishlistState ? 'Remove from Wishlist' : 'Add to Wishlist';
+
+            return (
+                <ButtonWithRegistration
+                    key="wishlist-button"
+                    onClick={handleWishlistItem}
+                    disabled={isWishlistLoading || !canAddToWishlist}
+                    isLoading={isWishlistLoading}
+                    width="100%"
+                    variant="outline"
+                    marginBottom={4}
+                >
+                    {buttonText}
+                </ButtonWithRegistration>
+            );
+        };
+
 
         return (
             <Flex direction={'column'} data-testid="product-view" ref={ref}>
@@ -378,7 +429,7 @@ const ProductView = forwardRef(
                                                 label={name}
                                             >
                                                 {values.map(
-                                                    ({href, name, image, value, orderable}) => (
+                                                    ({ href, name, image, value, orderable }) => (
                                                         <Swatch
                                                             key={value}
                                                             href={href}
@@ -396,10 +447,9 @@ const ProductView = forwardRef(
                                                                     backgroundColor={name.toLowerCase()}
                                                                     backgroundImage={
                                                                         image
-                                                                            ? `url(${
-                                                                                  image.disBaseLink ||
-                                                                                  image.link
-                                                                              })`
+                                                                            ? `url(${image.disBaseLink ||
+                                                                            image.link
+                                                                            })`
                                                                             : ''
                                                                     }
                                                                 />
@@ -518,6 +568,7 @@ const ProductView = forwardRef(
                     boxShadow={theme.shadows.top}
                 >
                     {renderActionButtons()}
+                    {renderWishlistButton()}
                 </Box>
             </Flex>
         )
@@ -535,6 +586,7 @@ ProductView.propTypes = {
     isWishlistLoading: PropTypes.bool,
     addToCart: PropTypes.func,
     addToWishlist: PropTypes.func,
+    removeFromWishlist: PropTypes.func,
     updateCart: PropTypes.func,
     updateWishlist: PropTypes.func,
     showFullLink: PropTypes.bool,
