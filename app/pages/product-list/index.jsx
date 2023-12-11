@@ -362,6 +362,9 @@ const ProductList = (props) => {
         }
     }, [productSearchResult])
 
+    const [displayedProducts, setDisplayedProducts] = useState('');
+    const productsPerLoad = 10;
+
     return (
         <Box
             className="sf-product-list-page"
@@ -555,7 +558,22 @@ const ProductList = (props) => {
                                 justifyContent={['center', 'center', 'flex-start']}
                                 paddingTop={8}
                             >
-                                <Pagination currentURL={basePath} urls={pageUrls} />
+                                <Flex justifyContent="center" mt={4}>
+                                <Button
+                                    onClick={() => {
+                                        setDisplayedProducts(displayedProducts + productsPerLoad)
+                                    }}
+                                    mt={4}
+                                    isDisabled={
+                                        displayedProducts >= productSearchResult?.total ||
+                                        isLoading ||
+                                        isRefetching
+                                    }
+                                >
+                                    Load More
+                                </Button>
+
+                            </Flex>
 
                                 {/*
                             Our design doesn't call for a page size select. Show this element if you want
