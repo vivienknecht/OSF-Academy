@@ -1,12 +1,12 @@
 {
   "name": "client",
-  "hash": "654c8faaa69ed579d6af",
+  "hash": "918ba06518a38812813c",
   "publicPath": "/mobify/bundle/development/",
   "outputPath": "D:\\lisam\\OSF-Academy\\build",
   "assetsByChunkName": {
     "main": [
       "main.js",
-      "main.5dc673083a59e130e9df.hot-update.js"
+      "main.c4cb5cdd05a9aa34fdf3.hot-update.js"
     ],
     "pages-home": [
       "pages-home.js"
@@ -191,7 +191,7 @@
     {
       "type": "asset",
       "name": "app_components_product-view_index_jsx.js",
-      "size": 71185,
+      "size": 74082,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
@@ -430,17 +430,17 @@
     },
     {
       "type": "asset",
-      "name": "app_components_product-view_index_jsx.5dc673083a59e130e9df.hot-update.js",
-      "size": 33951,
+      "name": "app_components_product-view_index_jsx.c4cb5cdd05a9aa34fdf3.hot-update.js",
+      "size": 36848,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
       "info": {
         "hotModuleReplacement": true,
         "immutable": true,
-        "fullhash": "5dc673083a59e130e9df",
+        "fullhash": "c4cb5cdd05a9aa34fdf3",
         "related": {
-          "sourceMap": "app_components_product-view_index_jsx.5dc673083a59e130e9df.hot-update.js.map"
+          "sourceMap": "app_components_product-view_index_jsx.c4cb5cdd05a9aa34fdf3.hot-update.js.map"
         }
       },
       "chunkNames": [],
@@ -655,7 +655,7 @@
     },
     {
       "type": "asset",
-      "name": "main.5dc673083a59e130e9df.hot-update.js",
+      "name": "main.c4cb5cdd05a9aa34fdf3.hot-update.js",
       "size": 360,
       "emitted": false,
       "comparedForEmit": false,
@@ -663,9 +663,9 @@
       "info": {
         "hotModuleReplacement": true,
         "immutable": true,
-        "fullhash": "5dc673083a59e130e9df",
+        "fullhash": "c4cb5cdd05a9aa34fdf3",
         "related": {
-          "sourceMap": "main.5dc673083a59e130e9df.hot-update.js.map"
+          "sourceMap": "main.c4cb5cdd05a9aa34fdf3.hot-update.js.map"
         }
       },
       "chunkNames": [
@@ -705,7 +705,7 @@
     },
     {
       "type": "asset",
-      "name": "main.5dc673083a59e130e9df.hot-update.json",
+      "name": "main.c4cb5cdd05a9aa34fdf3.hot-update.json",
       "size": 68,
       "emitted": false,
       "comparedForEmit": false,
@@ -713,7 +713,7 @@
       "info": {
         "hotModuleReplacement": true,
         "immutable": true,
-        "fullhash": "5dc673083a59e130e9df"
+        "fullhash": "c4cb5cdd05a9aa34fdf3"
       },
       "chunkNames": [],
       "chunkIdHints": [],
@@ -738,7 +738,7 @@
           "name": "main.js"
         },
         {
-          "name": "main.5dc673083a59e130e9df.hot-update.js"
+          "name": "main.c4cb5cdd05a9aa34fdf3.hot-update.js"
         }
       ],
       "filteredAssets": 0,
@@ -869,7 +869,7 @@
           "name": "app_components_product-view_index_jsx.js"
         },
         {
-          "name": "app_components_product-view_index_jsx.5dc673083a59e130e9df.hot-update.js"
+          "name": "app_components_product-view_index_jsx.c4cb5cdd05a9aa34fdf3.hot-update.js"
         },
         {
           "name": "app_components_order-summary_index_jsx.js"
@@ -911,7 +911,7 @@
           "name": "app_components_product-view_index_jsx.js"
         },
         {
-          "name": "app_components_product-view_index_jsx.5dc673083a59e130e9df.hot-update.js"
+          "name": "app_components_product-view_index_jsx.c4cb5cdd05a9aa34fdf3.hot-update.js"
         },
         {
           "name": "app_components_order-summary_index_jsx.js"
@@ -1012,7 +1012,7 @@
           "name": "app_components_product-view_index_jsx.js"
         },
         {
-          "name": "app_components_product-view_index_jsx.5dc673083a59e130e9df.hot-update.js"
+          "name": "app_components_product-view_index_jsx.c4cb5cdd05a9aa34fdf3.hot-update.js"
         },
         {
           "name": "pages-product-detail.js"
@@ -1058,7 +1058,7 @@
           "name": "app_components_product-view_index_jsx.js"
         },
         {
-          "name": "app_components_product-view_index_jsx.5dc673083a59e130e9df.hot-update.js"
+          "name": "app_components_product-view_index_jsx.c4cb5cdd05a9aa34fdf3.hot-update.js"
         },
         {
           "name": "app_components_confirmation-modal_index_jsx-app_components_product-item_index_jsx-app_compone-5d0c1c.js"
@@ -1115,7 +1115,7 @@
       "id": "main",
       "files": [
         "main.js",
-        "main.5dc673083a59e130e9df.hot-update.js"
+        "main.c4cb5cdd05a9aa34fdf3.hot-update.js"
       ]
     },
     {
@@ -1236,7 +1236,7 @@
       "id": "app_components_product-view_index_jsx",
       "files": [
         "app_components_product-view_index_jsx.js",
-        "app_components_product-view_index_jsx.5dc673083a59e130e9df.hot-update.js"
+        "app_components_product-view_index_jsx.c4cb5cdd05a9aa34fdf3.hot-update.js"
       ]
     },
     {

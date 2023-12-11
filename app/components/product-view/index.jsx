@@ -94,7 +94,6 @@ const ProductView = forwardRef(
             addToCart,
             updateCart,
             addToWishlist,
-            removeFromWishList,
             updateWishlist,
             isProductLoading,
             isProductPartOfSet = false,
@@ -289,28 +288,100 @@ const ProductView = forwardRef(
             }
         }, [variant?.productId, quantity])
 
-        const { data: wishlistData } = useWishList();
-        const removeListItem = useCustomerProductLists();
+        const [wishlistLoading, setWishlistLoading] = useState([])
 
-        const isInWishlist = (product, wishlistData) => {
-            if (wishlistData && wishlistData.items) {
-                return wishlistData.items.some(item => item.product_id === product.id);
+        const { data: wishlist } = useWishList();
+        const removeItemFromWishlist = async (product) => {
+            setWishlistLoading([...wishlistLoading, product.productId])
+    
+            const listId = wishlist.id
+            const itemId = wishlist.customerProductListItems.find(
+                (i) => i.productId === product.productId
+            ).id
+    
+            await deleteCustomerProductListItem(
+                {
+                    body: {},
+                    parameters: {customerId, listId, itemId}
+                },
+                {
+                    onError: () => {
+                        toast({
+                            title: formatMessage(API_ERROR_MESSAGE),
+                            status: 'error'
+                        })
+                    },
+                    onSuccess: () => {
+                        toast({
+                            title: formatMessage(TOAST_MESSAGE_REMOVED_FROM_WISHLIST),
+                            status: 'success'
+                        })
+                    },
+                    onSettled: () => {
+                        setWishlistLoading(wishlistLoading.filter((id) => id !== product.productId))
+                    }
+                }
+            )
+        }
+
+        const addItemToWishlist = async (product) => {
+            setWishlistLoading([...wishlistLoading, product.productId])
+            const listId = wishlist.id
+            await createCustomerProductListItem(
+                {
+                    parameters: {customerId, listId},
+                    body: {
+                        quantity: 1,
+                        public: false,
+                        priority: 1,
+                        type: 'product',
+                        productId: product.productId
+                    }
+                },
+                {
+                    onError: () => {
+                        toast({
+                            title: formatMessage(API_ERROR_MESSAGE),
+                            status: 'error'
+                        })
+                    },
+                    onSuccess: () => {
+                        toast({
+                            title: formatMessage(TOAST_MESSAGE_ADDED_TO_WISHLIST, {quantity: 1}),
+                            status: 'success',
+                            action: (
+                                <Button variant="link" onClick={() => navigate('/account/wishlist')}>
+                                    {formatMessage(TOAST_ACTION_VIEW_WISHLIST)}
+                                </Button>
+                            )
+                        })
+                    },
+                    onSettled: () => {
+                        setWishlistLoading(wishlistLoading.filter((id) => id !== product.productId))
+                    }
+                }
+            )
+        }
+
+        const isInWishlist = (product, wishlist) => {
+            if (wishlist && wishlist.items) {
+                return wishlist.items.some(item => item.id === product.id);
             }
             return false;
         }
 
-        const [isInWishlistState, setIsInWishlistState] = useState(isInWishlist(product, wishlistData));
+        const [isInWishlistState, setIsInWishlistState] = useState(isInWishlist(product, wishlist));
 
         const handleWishlistItem = async () => {
             try {
-                const productIsInWishlist = isInWishlist(product, wishlistData);
+                const productIsInWishlist = isInWishlist(product, wishlist);
 
                 if (productIsInWishlist) {
                     console.log('Removing from wishlist...');
-                    await removeListItem(product.id);
+                    await removeItemFromWishlist(product);
                     setIsInWishlistState(false);
                 } else {
-                    await addToWishlist(product);
+                    await addItemToWishlist(product);
                     setIsInWishlistState(true);
                 }
             } catch (error) {
